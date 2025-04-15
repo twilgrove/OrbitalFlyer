@@ -1,0 +1,29 @@
+{
+    "files.associations": {
+        "memorymap.h": "c",
+        "inint_process.h": "c",
+        "led.hpp": "c",
+        "delay.h": "c"
+    },
+    "jswyll-stm32-assistant.redirectPrintf": true,
+    "jswyll-stm32-assistant.redirectPrintfUartNum": 6,
+    "jswyll-stm32-assistant.relocateVectorEnbale": false,
+    "jswyll-stm32-assistant.relocateVectorAddr": "0x08004000",
+    "jswyll-stm32-assistant.isUsingJswyllIap": false,
+    "jswyll-stm32-assistant.selectedDebugger": "STLink",
+    "jswyll-stm32-assistant.isJlinkDirectlyDownload": false,
+    "jswyll-stm32-assistant.selectedInterfacet": "SWD",
+    "jswyll-stm32-assistant.gccCompilerPath": "F:/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/bin/arm-none-eabi-gcc.exe",
+    "jswyll-stm32-assistant.extraCompileDirs": [
+        "my_device",
+        "my_device/bluebooth",
+        "my_device/led",
+        "my_sys",
+        "my_sys/delay_us",
+        "my_sys/PWM"
+    ],
+    "jswyll-stm32-assistant.cStandard": "c99",
+    "jswyll-stm32-assistant.cppStandard": "c++11",
+    "jswyll-stm32-assistant.jlinkSpeed": 6000,
+    "cortex-debug.armToolchainPath": "F:/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/bin"
+}

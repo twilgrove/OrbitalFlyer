@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Cortex Debug",
+            "cwd": "${workspaceFolder}",
+            "executable": "${workspaceFolder}/build/STM32H7_Fly.elf",
+            "request": "launch",
+            "type": "cortex-debug",
+            "runToEntryPoint": "main",
+            "servertype": "openocd",
+            "configFiles": [
+                "${workspaceFolder}/.vscode/openocd.cfg"
+            ],
+            "device": "STM32H743VI",
+            "interface": "swd",
+            "preLaunchTask": "build"
+        }
+    ]
+}

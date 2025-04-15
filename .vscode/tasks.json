@@ -1,0 +1,119 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "detail": "编译",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "all",
+                "-j16",
+                "--output-sync=target"
+            ],
+            "options": {
+                "env": {
+                    "GCC_PATH": "F:/ST/STM32CubeCLT_1.17.0/GNU-tools-for-STM32/bin"
+                }
+            },
+            "problemMatcher": [
+                {
+                    "owner": "compile",
+                    "pattern": {
+                        "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "severity": 4,
+                        "message": 5
+                    }
+                }
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            }
+        },
+        {
+            "label": "download",
+            "detail": "下载",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                ".vscode/openocd.cfg",
+                "-c",
+                "program build/${workspaceFolderBasename}.hex verify reset exit"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build-download",
+            "detail": "编译并下载",
+            "dependsOn": [
+                "build"
+            ],
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "command": "openocd",
+            "args": [
+                "-f",
+                ".vscode/openocd.cfg",
+                "-c",
+                "program build/${workspaceFolderBasename}.hex verify reset exit"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "download-jlink",
+            "detail": "使用Jlink脚本下载",
+            "type": "shell",
+            "command": "JLink.exe -CommandFile .vscode/download.jlink",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "detail": "清除编译",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "rebuild",
+            "detail": "重新编译",
+            "dependsOn": [
+                "clean",
+                "build"
+            ],
+            "dependsOrder": "sequence",
+            "type": "shell",
+            "command": "echo",
+            "args": [
+                "done"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "problemMatcher": []
+        }
+    ]
+}

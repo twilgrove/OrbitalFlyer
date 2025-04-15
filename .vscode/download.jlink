@@ -1,0 +1,9 @@
+ExitOnError 1
+Device STM32H743VI
+SelectInterface SWD
+Speed 6000
+Reset
+Halt
+Loadfile "build/STM32H7_Fly.hex"
+Reset
+Qc
